@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="tce.jpg">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('6.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: brightness(0.5); /* dim the image */
+      z-index: -1;
+    }
+
+    .content {
+      z-index: 1;
+      color: white;
+      text-shadow: 1px 1px 4px #000;
+    }
+  </style>
+</head>
+<body class="d-flex justify-content-center align-items-center">
+
+  <!-- Background Image -->
+  <div class="background"></div>
+
+  <!-- Foreground Content -->
+  <div class="text-center content">
+    <h1 id="welcomeMsg">Welcome!</h1>
+    <p>You are now logged in.</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name") || "User";
+    document.getElementById("welcomeMsg").innerText = "Welcome, " + name + "!";
+  </script>
+</body>
+</html>
